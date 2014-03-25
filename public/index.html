@@ -40,23 +40,23 @@ d3.json("actions.json", function(data){
 var nested_data = d3.nest().key(function (d) { return d.player_name; }).entries(data);
 
 
-/* test & debug with console log */
-console.log(nested_data);
+
+
 
 /*iterate players array to extract sum of maximum occured total_points */
 nested_data.forEach(function(d)
     {
-        
-/* visualize sum of total points ( maximum occurrence ) for each player : drawing a rectangular for each player where the width is the sum of maximum occurred total points */
+
+/* checking player's total_points */
+console.log(d.values[0].total_points);
+
+/* visualize sum of total points ( based on maximum occurrence of each action). For each player : drawing a rectangular where the width is the sum of maximum occurred total points */
 
 canvas.selectAll("rect")
 	.data(nested_data)
 	.enter()
 	.append("rect")
-	.attr("width", function (d) { 
-		       return d.values.forEach(
-                                       function(e){ 
-                                       console.log(e.values)});} )
+	.attr("width",function(d){return d.values[0].total_points;}) 
 	.attr("height",10)
 	.attr("y",function (d,i) {return i;})
 	.style("fill", "red")
