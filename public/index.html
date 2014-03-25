@@ -47,7 +47,7 @@ console.log(nested_data);
 nested_data.forEach(function(d)
     {
         
-/* visualise sum of total points ( maximum occurence ) for each player : needs a reformulate */
+/* visualize sum of total points ( maximum occurrence ) for each player : drawing a rectangular for each player where the width is the sum of maximum occurred total points */
 
 canvas.selectAll("rect")
 	.data(nested_data)
@@ -61,7 +61,7 @@ canvas.selectAll("rect")
 	.attr("y",function (d,i) {return i;})
 	.style("fill", "red")
 
-/* append the player name to the rectengular */
+/* append the player name to the rectangular */
 canvas.selectAll("text")
 	.data(nested_data)
 	.enter()
